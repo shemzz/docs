@@ -6,7 +6,7 @@ Click the green **Use this template** button at the top of this repo to copy the
 
 - Guide pages
 - Navigation
-- Customizations
+- Customisations
 - API reference pages
 - Use of popular components
 
