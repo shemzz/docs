@@ -1,0 +1,267 @@
+---
+title: "Memory"
+description: "Configure agent memory to retain context and information across conversations"
+---
+
+## **Overview**
+
+Memory allows your Mavera AI agent to remember information from conversations, maintain context, and provide personalized experiences. This guide covers how to configure and use memory in your agents.
+
+![Memory Overview](/images/memory-overview-placeholder.png)
+
+## **Types of Memory**
+
+### **1. Conversation Memory**
+
+Remembers information within a single conversation:
+- Previous turns in the current conversation
+- Context from earlier in the call
+- Information mentioned by the user
+- Agent's previous responses
+
+**Use Case**: Maintaining context during a single phone call.
+
+### **2. Long-term Memory**
+
+Stores information across multiple conversations:
+- User preferences
+- Past interactions
+- Customer history
+- Persistent data
+
+**Use Case**: Remembering customer information across multiple calls.
+
+### **3. User Profiles**
+
+Maintains user-specific information:
+- Name and contact details
+- Preferences and settings
+- Account information
+- Interaction history
+
+**Use Case**: Personalizing experiences based on user data.
+
+## **Configuring Memory**
+
+### **Conversation Memory Settings**
+
+Configure how much context to remember:
+
+- **Context Window**: Number of conversation turns to remember
+- **Variable Storage**: Which variables to store during conversation
+- **Memory Duration**: How long to retain conversation context
+
+![Conversation Memory Settings](/images/conversation-memory-placeholder.png)
+
+### **Long-term Memory Settings**
+
+Configure persistent memory:
+
+- **Storage Type**: Database, API, or custom storage
+- **Data Retention**: How long to keep long-term memory
+- **Privacy Settings**: What data can be stored
+- **Access Control**: Who can access stored data
+
+![Long-term Memory Settings](/images/longterm-memory-placeholder.png)
+
+## **Using Memory in Conversations**
+
+### **Storing Information**
+
+Store information during conversations:
+
+```
+User: "My name is John and I prefer morning appointments"
+Agent: Stores:
+  - user_name = "John"
+  - appointment_preference = "morning"
+```
+
+### **Retrieving Information**
+
+Retrieve stored information:
+
+```
+Agent: "Hello {user_name}, I see you prefer {appointment_preference} appointments. 
+       Would you like to schedule one for tomorrow morning?"
+```
+
+### **Updating Information**
+
+Update existing memory:
+
+```
+User: "Actually, I prefer afternoon appointments now"
+Agent: Updates appointment_preference = "afternoon"
+```
+
+## **Memory Variables**
+
+### **User Variables**
+
+Information collected from users:
+- Name, email, phone number
+- Preferences and choices
+- Answers to questions
+- Requested information
+
+### **System Variables**
+
+Pre-defined system information:
+- Current date and time
+- Agent configuration
+- Call metadata
+- System settings
+
+### **Custom Variables**
+
+Variables you create and manage:
+- Business logic variables
+- Calculated values
+- Temporary data
+- Flags and states
+
+## **Memory Best Practices**
+
+### **1. Store Only What You Need**
+
+Don't store unnecessary information:
+- ✅ Store: Customer preferences, order history
+- ❌ Don't store: Temporary calculations, sensitive data
+
+### **2. Keep Data Fresh**
+
+Regularly update stored information:
+- Refresh outdated data
+- Remove obsolete information
+- Validate stored data
+
+### **3. Respect Privacy**
+
+Follow privacy regulations:
+- Get consent before storing data
+- Allow users to delete their data
+- Encrypt sensitive information
+- Comply with GDPR, CCPA, etc.
+
+### **4. Use Appropriate Storage**
+
+Choose the right storage type:
+- **Conversation Memory**: For temporary, call-specific data
+- **Long-term Memory**: For persistent, user-specific data
+- **User Profiles**: For personal information
+
+### **5. Test Memory Behavior**
+
+Test that memory works correctly:
+- Verify information is stored
+- Check retrieval accuracy
+- Test memory updates
+- Validate data persistence
+
+## **Memory Use Cases**
+
+### **Customer Service**
+
+Remember customer information:
+- Previous issues
+- Preferred contact methods
+- Account details
+- Service history
+
+### **Appointment Scheduling**
+
+Remember preferences:
+- Preferred times
+- Appointment history
+- Special requirements
+- Recurring appointments
+
+### **E-commerce**
+
+Remember shopping behavior:
+- Past purchases
+- Product preferences
+- Cart contents
+- Wishlist items
+
+### **Lead Qualification**
+
+Track lead information:
+- Qualification status
+- Previous interactions
+- Next steps
+- Follow-up requirements
+
+## **Memory and Privacy**
+
+### **Data Protection**
+
+- Encrypt stored data
+- Use secure storage
+- Implement access controls
+- Regular security audits
+
+### **User Rights**
+
+- Allow data access
+- Enable data deletion
+- Provide data export
+- Respect opt-out requests
+
+### **Compliance**
+
+- GDPR compliance
+- CCPA compliance
+- HIPAA (if applicable)
+- Industry-specific regulations
+
+## **Troubleshooting**
+
+<AccordionGroup>
+  <Accordion title="Memory isn't persisting between conversations">
+    - Check long-term memory configuration
+    - Verify storage is properly configured
+    - Review data retention settings
+    - Check for storage errors
+  </Accordion>
+
+  <Accordion title="Agent isn't using stored information">
+    - Verify memory is being retrieved
+    - Check variable names match
+    - Review memory access permissions
+    - Test memory retrieval
+  </Accordion>
+
+  <Accordion title="Memory is storing incorrect data">
+    - Review data validation
+    - Check variable assignment
+    - Verify data sources
+    - Test data storage
+  </Accordion>
+
+  <Accordion title="How do I clear memory?">
+    - Use memory management tools
+    - Delete specific variables
+    - Clear user profiles
+    - Reset conversation memory
+  </Accordion>
+</AccordionGroup>
+
+## **Next Steps**
+
+<CardGroup cols={2}>
+  <Card title="Actions" icon="bolt" href="/build/actions">
+    Use memory with actions
+  </Card>
+  <Card title="Flow Designer" icon="sitemap" href="/build/flow-designer">
+    Configure memory in flows
+  </Card>
+  <Card title="Configuration" icon="gear" href="/build/configuration">
+    General configuration settings
+  </Card>
+  <Card title="Test Your Agent" icon="flask" href="/evaluate/test-your-agent">
+    Test memory functionality
+  </Card>
+</CardGroup>
+

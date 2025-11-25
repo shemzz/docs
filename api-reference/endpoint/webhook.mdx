@@ -1,4 +1,109 @@
 ---
-title: 'New Plant'
-openapi: 'WEBHOOK /plant/webhook'
+title: "Webhooks"
+description: "Set up webhooks to receive real-time updates about agent events"
 ---
+
+## **Create Webhook**
+
+<ParamField body="body" path="body" type="object">
+  <ParamField body="url" path="url" type="string" required>
+    Webhook URL endpoint
+  </ParamField>
+  <ParamField body="events" path="events" type="array" required>
+    Array of events to subscribe to
+  </ParamField>
+  <ParamField body="secret" path="secret" type="string">
+    Webhook secret for verification
+  </ParamField>
+</ParamField>
+
+<RequestExample>
+
+```bash
+curl -X POST https://api.mavera.ai/v1/webhooks \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "url": "https://your-app.com/webhooks/mavera",
+    "events": [
+      "call.started",
+      "call.ended",
+      "call.transcribed",
+      "agent.updated"
+    ],
+    "secret": "your-webhook-secret"
+  }'
+```
+
+</RequestExample>
+
+<ResponseExample>
+
+```json
+{
+  "success": true,
+  "data": {
+    "id": "webhook_123456",
+    "url": "https://your-app.com/webhooks/mavera",
+    "events": [
+      "call.started",
+      "call.ended",
+      "call.transcribed",
+      "agent.updated"
+    ],
+    "status": "active",
+    "created_at": "2024-01-15T10:30:00Z"
+  }
+}
+```
+
+</ResponseExample>
+
+## **Available Events**
+
+- `call.started` - When a call begins
+- `call.ended` - When a call completes
+- `call.transcribed` - When transcription is ready
+- `agent.updated` - When agent configuration changes
+- `agent.deployed` - When agent is deployed
+- `error.occurred` - When an error occurs
+
+## **Webhook Payload**
+
+<ResponseExample>
+
+```json
+{
+  "event": "call.ended",
+  "timestamp": "2024-01-15T10:35:00Z",
+  "data": {
+    "call_id": "call_789012",
+    "agent_id": "agent_123456",
+    "duration": 120,
+    "status": "completed",
+    "transcript": "Full conversation transcript..."
+  }
+}
+```
+
+</ResponseExample>
+
+## **Webhook Security**
+
+Always verify webhook signatures to ensure authenticity:
+
+```javascript
+const crypto = require('crypto');
+
+function verifyWebhook(payload, signature, secret) {
+  const expectedSignature = crypto
+    .createHmac('sha256', secret)
+    .update(JSON.stringify(payload))
+    .digest('hex');
+  
+  return crypto.timingSafeEqual(
+    Buffer.from(signature),
+    Buffer.from(expectedSignature)
+  );
+}
+```

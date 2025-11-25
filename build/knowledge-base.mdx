@@ -1,0 +1,263 @@
+---
+title: "Knowledge Base"
+description: "Add and manage information sources for your agents to provide accurate answers"
+---
+
+## **Overview**
+
+A Knowledge Base allows your Mavera AI agent to access specific information from documents, websites, and databases to answer questions accurately. This ensures your agent has the right information at its fingertips.
+
+![Knowledge Base Overview](/images/knowledge-base-overview-placeholder.png)
+
+## **What is a Knowledge Base?**
+
+A Knowledge Base is a collection of information sources that your agent can reference during conversations:
+- **Documents**: PDFs, Word documents, text files
+- **Websites**: URLs that are scraped for content
+- **Text**: Direct text input
+- **Databases**: External database connections
+
+## **Why Use a Knowledge Base?**
+
+- **Accuracy**: Ensures your agent provides correct, up-to-date information
+- **Consistency**: All agents can access the same information
+- **Efficiency**: No need to manually update agent prompts with information
+- **Scalability**: Easy to add new information as your business grows
+
+## **Creating a Knowledge Base**
+
+### **Step 1: Navigate to Knowledge Base**
+
+1. Open your agent configuration
+2. Go to the **Knowledge Base** section
+3. Click **"Add Source"** or **"Create Knowledge Base"**
+
+![Knowledge Base Interface](/images/knowledge-base-interface-placeholder.png)
+
+### **Step 2: Choose Source Type**
+
+Select the type of information source:
+- **Document Upload**: Upload files
+- **URL**: Add website URLs
+- **Text**: Enter text directly
+- **Database**: Connect to a database
+
+### **Step 3: Add Your Content**
+
+#### **Upload Documents**
+
+1. Click **"Upload Document"**
+2. Select your file (PDF, DOCX, TXT, etc.)
+3. Wait for processing
+4. Verify the content was extracted correctly
+
+**Supported Formats:**
+- PDF (.pdf)
+- Word Documents (.docx, .doc)
+- Text Files (.txt)
+- Markdown (.md)
+- CSV (.csv)
+
+![Document Upload](/images/document-upload-placeholder.png)
+
+#### **Add URLs**
+
+1. Click **"Add URL"**
+2. Enter the website URL
+3. Configure scraping options:
+   - **Depth**: How many pages to scrape
+   - **Include Links**: Whether to follow links
+   - **Update Frequency**: How often to refresh
+4. Click **"Scrape"**
+
+![URL Configuration](/images/url-config-placeholder.png)
+
+#### **Enter Text Directly**
+
+1. Click **"Add Text"**
+2. Enter or paste your content
+3. Add a title/description
+4. Click **"Save"**
+
+**Best Practices:**
+- Use clear headings
+- Organize information logically
+- Keep sections focused
+- Update regularly
+
+#### **Connect Database**
+
+1. Click **"Connect Database"**
+2. Enter connection details:
+   - Database type
+   - Host and port
+   - Credentials
+   - Database name
+3. Configure query settings
+4. Test the connection
+
+## **Managing Knowledge Base**
+
+### **Organizing Sources**
+
+- **Categories**: Group related sources
+- **Tags**: Add tags for easy filtering
+- **Priority**: Set priority for important sources
+- **Status**: Enable/disable sources
+
+### **Updating Content**
+
+- **Manual Updates**: Edit or re-upload sources
+- **Automatic Updates**: Set up scheduled refreshes
+- **Version Control**: Track changes to sources
+- **Notifications**: Get notified of updates
+
+### **Search and Filter**
+
+- Search by keywords
+- Filter by type, category, or tags
+- Sort by date, relevance, or priority
+- Preview content before use
+
+## **Best Practices**
+
+### **1. Keep Content Relevant**
+
+Only include information your agent needs:
+- ✅ Product information
+- ✅ Policies and procedures
+- ✅ FAQs
+- ❌ Outdated information
+- ❌ Irrelevant content
+
+### **2. Organize Information**
+
+Structure your content logically:
+- Use clear headings
+- Group related information
+- Create categories
+- Add tags for searchability
+
+### **3. Keep Content Updated**
+
+Regularly update your knowledge base:
+- Review content monthly
+- Remove outdated information
+- Add new information promptly
+- Verify accuracy
+
+### **4. Optimize for Search**
+
+Make content easy to find:
+- Use descriptive titles
+- Include keywords
+- Add tags
+- Structure content clearly
+
+### **5. Test Regularly**
+
+Test that your agent can find information:
+- Ask questions your agent should answer
+- Verify responses are accurate
+- Check that sources are being used
+- Update as needed
+
+## **Knowledge Base Settings**
+
+### **Relevance Settings**
+
+- **Relevance Threshold**: Minimum relevance score to use information
+- **Max Sources**: Maximum number of sources to use per query
+- **Source Priority**: How to prioritize sources
+
+### **Update Settings**
+
+- **Auto-Update**: Enable automatic updates
+- **Update Frequency**: How often to refresh
+- **Update Notifications**: Get notified of updates
+
+### **Privacy Settings**
+
+- **Data Retention**: How long to keep data
+- **Access Control**: Who can access sources
+- **Compliance**: GDPR, HIPAA compliance
+
+## **Use Cases**
+
+### **Customer Support**
+
+- Product documentation
+- Troubleshooting guides
+- FAQ content
+- Policy information
+
+### **Sales**
+
+- Product catalogs
+- Pricing information
+- Feature descriptions
+- Competitive comparisons
+
+### **HR**
+
+- Employee handbooks
+- Policy documents
+- Benefits information
+- Procedures
+
+### **Healthcare**
+
+- Medical information
+- Treatment protocols
+- Drug information
+- Patient education
+
+## **Troubleshooting**
+
+<AccordionGroup>
+  <Accordion title="Agent isn't using knowledge base information">
+    - Check relevance threshold settings
+    - Verify sources are enabled
+    - Review source priority
+    - Test knowledge base search
+  </Accordion>
+
+  <Accordion title="Information is outdated">
+    - Update knowledge base sources
+    - Enable automatic updates
+    - Set up update notifications
+    - Review update frequency
+  </Accordion>
+
+  <Accordion title="Agent is using wrong information">
+    - Check source priority
+    - Review relevance scores
+    - Verify source accuracy
+    - Update conflicting sources
+  </Accordion>
+
+  <Accordion title="Documents aren't processing correctly">
+    - Check file format compatibility
+    - Verify file isn't corrupted
+    - Review file size limits
+    - Try re-uploading
+  </Accordion>
+</AccordionGroup>
+
+## **Next Steps**
+
+<CardGroup cols={2}>
+  <Card title="Configuration" icon="gear" href="/build/configuration">
+    Configure knowledge base settings
+  </Card>
+  <Card title="Test Your Agent" icon="flask" href="/evaluate/test-your-agent">
+    Test knowledge base functionality
+  </Card>
+  <Card title="Analytics" icon="chart-line" href="/learn/analytics-dashboard">
+    Monitor knowledge base usage
+  </Card>
+  <Card title="Actions" icon="bolt" href="/build/actions">
+    Connect knowledge base to actions
+  </Card>
+</CardGroup>
+

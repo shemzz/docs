@@ -1,0 +1,255 @@
+---
+title: "Flow Designer Agent"
+description: "Design complex conversation flows with Mavera AI's visual flow designer"
+---
+
+## **Overview**
+
+The Flow Designer is Mavera AI's visual interface for building sophisticated, multi-step conversation flows. It allows you to create predictable, reviewable conversation paths that your team can trust.
+
+![Flow Designer Overview](/images/flow-designer-overview-placeholder.png)
+
+## **Getting Started**
+
+### **When to Use Flow Designer**
+
+Use Flow Designer when you need:
+- Multi-step conversations with branching logic
+- Conditional responses based on user input
+- Integration with external systems at specific points
+- Complex decision trees
+- Predictable, reviewable conversation paths
+
+### **Creating a Flow Designer Agent**
+
+1. Navigate to **Create Agent**
+2. Select **"Flow Designer Agent"**
+3. You'll see the visual flow canvas
+
+![Flow Designer Canvas](/images/flow-designer-canvas-placeholder.png)
+
+## **Core Concepts**
+
+### **Nodes**
+
+Nodes are the building blocks of your conversation flow:
+
+- **Start Node**: The entry point of your conversation
+- **Message Node**: Sends text to the user
+- **Question Node**: Asks the user a question and captures their response
+- **Condition Node**: Branches the flow based on conditions
+- **Action Node**: Performs external actions (API calls, database queries, etc.)
+- **End Node**: Concludes the conversation
+
+![Node Types](/images/flow-designer-nodes-placeholder.png)
+
+### **Connections**
+
+Connect nodes to define the conversation path:
+- Click and drag from a node's output to another node's input
+- Connections represent the flow of conversation
+- You can have multiple connections from a single node for branching
+
+![Node Connections](/images/flow-designer-connections-placeholder.png)
+
+## **Building Your First Flow**
+
+### **Step 1: Start Node**
+
+Every flow begins with a Start Node:
+- This is automatically created
+- You can configure the initial greeting
+- Set up initial variables if needed
+
+### **Step 2: Add a Message Node**
+
+1. Drag a **Message Node** onto the canvas
+2. Connect it from the Start Node
+3. Enter your greeting message:
+   ```
+   Hello! Thank you for calling. How can I help you today?
+   ```
+
+### **Step 3: Add a Question Node**
+
+1. Add a **Question Node** after your greeting
+2. Configure the question:
+   - **Question Text**: "What would you like to do today?"
+   - **Variable Name**: Store the response in a variable (e.g., `user_intent`)
+   - **Validation**: Optional validation rules
+
+![Question Node Configuration](/images/question-node-placeholder.png)
+
+### **Step 4: Add Conditional Logic**
+
+1. Add a **Condition Node** after the question
+2. Set up conditions based on the user's response:
+   ```
+   If user_intent contains "appointment" → Go to Appointment Flow
+   If user_intent contains "information" → Go to Information Flow
+   Otherwise → Go to General Help
+   ```
+
+![Condition Node](/images/condition-node-placeholder.png)
+
+### **Step 5: Add Actions (Optional)**
+
+For each branch, you can add **Action Nodes**:
+- Make API calls
+- Query databases
+- Send emails
+- Update CRM systems
+
+![Action Node](/images/action-node-placeholder.png)
+
+### **Step 6: End the Conversation**
+
+Add **End Nodes** to conclude each conversation path:
+- Thank the user
+- Provide next steps
+- Set follow-up actions if needed
+
+## **Advanced Features**
+
+### **Variables**
+
+Use variables to store and reuse information:
+
+- **User Variables**: Information collected from the user
+- **System Variables**: Pre-defined system information
+- **Custom Variables**: Variables you create and manage
+
+**Example:**
+```
+Variable: customer_name
+Value: Collected from Question Node "What's your name?"
+Used in: "Thank you, {customer_name}, for calling today!"
+```
+
+### **Memory**
+
+Configure memory to retain context:
+- **Conversation Memory**: Remembers the current conversation
+- **Long-term Memory**: Stores information across conversations
+- **User Profiles**: Maintains user-specific data
+
+### **Loops and Iterations**
+
+Create loops for repetitive tasks:
+- Ask multiple questions in sequence
+- Process lists of items
+- Retry failed actions
+
+### **Error Handling**
+
+Set up error handling:
+- **Try-Catch Blocks**: Handle action failures gracefully
+- **Fallback Messages**: Provide alternatives when actions fail
+- **Retry Logic**: Automatically retry failed operations
+
+![Error Handling](/images/error-handling-placeholder.png)
+
+## **Best Practices**
+
+### **1. Keep Flows Simple**
+
+- Break complex flows into smaller, manageable sections
+- Use clear, descriptive node names
+- Document your flow logic
+
+### **2. Test Each Branch**
+
+- Test every possible conversation path
+- Verify conditional logic works correctly
+- Check that variables are set and used properly
+
+### **3. Use Meaningful Variable Names**
+
+- Use descriptive names: `customer_name` not `var1`
+- Follow a consistent naming convention
+- Document variable purposes
+
+### **4. Handle Edge Cases**
+
+- Add default branches for unexpected responses
+- Provide helpful error messages
+- Include fallback options
+
+### **5. Optimize for Performance**
+
+- Minimize unnecessary API calls
+- Cache frequently accessed data
+- Use efficient conditional logic
+
+## **Integration Examples**
+
+### **CRM Integration**
+
+```
+Start → Greeting → Question (Customer ID) → 
+Action (Fetch CRM Data) → Message (Display Info) → End
+```
+
+### **Appointment Booking**
+
+```
+Start → Greeting → Question (Date Preference) → 
+Question (Time Preference) → Action (Check Availability) → 
+Condition (Available?) → Action (Book Appointment) → End
+```
+
+### **Support Ticket Creation**
+
+```
+Start → Greeting → Question (Issue Description) → 
+Action (Create Ticket) → Message (Ticket Number) → End
+```
+
+## **Troubleshooting**
+
+<AccordionGroup>
+  <Accordion title="My flow isn't following the expected path">
+    - Check your condition logic
+    - Verify variable names match exactly
+    - Review the conversation logs
+    - Test each condition individually
+  </Accordion>
+
+  <Accordion title="Variables aren't being set correctly">
+    - Ensure variable names don't have spaces
+    - Check that Question Nodes are properly configured
+    - Verify variable scope (conversation vs. long-term)
+  </Accordion>
+
+  <Accordion title="Actions are failing">
+    - Check API credentials and endpoints
+    - Verify request formats
+    - Review error logs
+    - Test API calls outside the flow first
+  </Accordion>
+
+  <Accordion title="How do I debug my flow?">
+    - Use the simulation feature to test flows
+    - Review execution logs for each node
+    - Check variable values at each step
+    - Use the debug mode for detailed information
+  </Accordion>
+</AccordionGroup>
+
+## **Next Steps**
+
+<CardGroup cols={2}>
+  <Card title="Actions" icon="bolt" href="/build/actions">
+    Learn how to integrate external systems
+  </Card>
+  <Card title="Memory" icon="brain" href="/build/memory">
+    Configure agent memory for context retention
+  </Card>
+  <Card title="Simulations" icon="flask" href="/evaluate/simulations">
+    Test your flow with realistic scenarios
+  </Card>
+  <Card title="Deploy" icon="cloud-upload" href="/launch/deploy-your-agent">
+    Deploy your flow designer agent
+  </Card>
+</CardGroup>
+

@@ -1,0 +1,280 @@
+---
+title: "Simulations"
+description: "Test your agent with realistic conversation scenarios before deployment"
+---
+
+## **Overview**
+
+Simulations allow you to test your Mavera AI agent in a safe, controlled environment before deploying to production. You can create realistic conversation scenarios and validate that your agent responds correctly.
+
+![Simulations Overview](/images/simulations-overview-placeholder.png)
+
+## **What are Simulations?**
+
+Simulations are test conversations that mimic real-world scenarios:
+- **Realistic Scenarios**: Based on actual use cases
+- **Safe Testing**: No impact on real customers
+- **Repeatable**: Run the same test multiple times
+- **Measurable**: Track performance metrics
+
+## **Why Use Simulations?**
+
+- **Quality Assurance**: Ensure your agent works correctly
+- **Risk Reduction**: Catch issues before going live
+- **Performance Testing**: Validate response times
+- **Cost Savings**: Avoid problems in production
+
+## **Creating a Simulation**
+
+### **Step 1: Navigate to Simulations**
+
+1. Open your agent
+2. Go to the **Evaluate** section
+3. Click **"Create Simulation"** or **"New Simulation"**
+
+![Simulation Creation](/images/simulation-creation-placeholder.png)
+
+### **Step 2: Define Scenario**
+
+Create a realistic scenario:
+- **Scenario Name**: Descriptive name
+- **Description**: What you're testing
+- **Context**: Background information
+- **Expected Outcome**: What should happen
+
+**Example:**
+```
+Name: Customer Service - Order Inquiry
+Description: Customer calls to check order status
+Context: Customer placed order 3 days ago, order number 12345
+Expected Outcome: Agent provides order status and estimated delivery
+```
+
+### **Step 3: Create Conversation Flow**
+
+Define the conversation:
+- **User Messages**: What the caller says
+- **Agent Responses**: Expected agent responses
+- **Branching**: Different conversation paths
+- **Variables**: Data to use in conversation
+
+![Conversation Flow](/images/conversation-flow-placeholder.png)
+
+### **Step 4: Set Test Parameters**
+
+Configure test settings:
+- **Voice Settings**: Use same voice as production
+- **Timeout**: Maximum conversation duration
+- **Retries**: Number of retry attempts
+- **Validation**: Success criteria
+
+## **Simulation Types**
+
+### **1. Single Path Simulations**
+
+Test a linear conversation:
+```
+User: "I want to check my order status"
+Agent: "I can help with that. What's your order number?"
+User: "12345"
+Agent: "Your order is scheduled for delivery tomorrow."
+```
+
+### **2. Branching Simulations**
+
+Test multiple conversation paths:
+```
+Path A: Order found → Provide status
+Path B: Order not found → Ask for verification
+Path C: Error → Escalate to human
+```
+
+### **3. Edge Case Simulations**
+
+Test unusual scenarios:
+- Unexpected inputs
+- Error conditions
+- Boundary cases
+- Stress scenarios
+
+### **4. End-to-End Simulations**
+
+Test complete workflows:
+- Full customer journey
+- Multiple interactions
+- Complex scenarios
+- Integration testing
+
+## **Running Simulations**
+
+### **Manual Execution**
+
+Run simulations manually:
+1. Select simulation
+2. Click **"Run"**
+3. Watch conversation unfold
+4. Review results
+
+![Running Simulation](/images/running-simulation-placeholder.png)
+
+### **Automated Execution**
+
+Schedule automated runs:
+- **Scheduled Runs**: Run at specific times
+- **Triggered Runs**: Run on events
+- **Batch Runs**: Run multiple simulations
+- **Continuous Testing**: Run regularly
+
+### **Batch Testing**
+
+Run multiple simulations:
+1. Select multiple simulations
+2. Click **"Run Batch"**
+3. Monitor progress
+4. Review results
+
+## **Analyzing Results**
+
+### **Success Metrics**
+
+Track key metrics:
+- **Pass Rate**: Percentage of successful tests
+- **Response Time**: How fast agent responds
+- **Accuracy**: Correctness of responses
+- **User Satisfaction**: Quality of interaction
+
+![Simulation Results](/images/simulation-results-placeholder.png)
+
+### **Failure Analysis**
+
+Identify issues:
+- **Failed Tests**: Which tests failed
+- **Error Messages**: What went wrong
+- **Logs**: Detailed execution logs
+- **Suggestions**: How to fix issues
+
+### **Performance Metrics**
+
+Monitor performance:
+- **Average Response Time**: Speed of responses
+- **Success Rate**: Percentage of successful interactions
+- **Error Rate**: Frequency of errors
+- **Completion Rate**: How often conversations complete
+
+## **Best Practices**
+
+### **1. Test Realistic Scenarios**
+
+Use actual use cases:
+- Real customer questions
+- Common scenarios
+- Typical workflows
+- Edge cases
+
+### **2. Test Regularly**
+
+Run simulations frequently:
+- Before deployment
+- After changes
+- Regularly scheduled
+- After incidents
+
+### **3. Test Comprehensively**
+
+Cover all scenarios:
+- Happy paths
+- Error cases
+- Edge cases
+- Integration points
+
+### **4. Document Results**
+
+Keep records:
+- Test results
+- Issues found
+- Fixes applied
+- Performance trends
+
+### **5. Iterate and Improve**
+
+Continuously improve:
+- Fix issues found
+- Add new scenarios
+- Update tests
+- Refine criteria
+
+## **Advanced Features**
+
+### **Custom Evaluations**
+
+Create custom evaluation criteria:
+- Business-specific metrics
+- Compliance checks
+- Quality standards
+- Performance benchmarks
+
+### **A/B Testing**
+
+Compare different configurations:
+- Test voice options
+- Compare prompts
+- Evaluate flows
+- Optimize settings
+
+### **Regression Testing**
+
+Ensure changes don't break existing functionality:
+- Run full test suite
+- Compare results
+- Identify regressions
+- Fix issues
+
+## **Troubleshooting**
+
+<AccordionGroup>
+  <Accordion title="Simulations are failing unexpectedly">
+    - Review test scenarios
+    - Check agent configuration
+    - Verify test data
+    - Review error logs
+  </Accordion>
+
+  <Accordion title="Agent responses don't match expectations">
+    - Review agent configuration
+    - Check knowledge base
+    - Verify prompts
+    - Test manually
+  </Accordion>
+
+  <Accordion title="Simulations are taking too long">
+    - Check timeout settings
+    - Review conversation flow
+    - Optimize agent responses
+    - Reduce test complexity
+  </Accordion>
+
+  <Accordion title="How do I create realistic test scenarios?">
+    - Use actual customer interactions
+    - Review call logs
+    - Consult with team members
+    - Start with common scenarios
+  </Accordion>
+</AccordionGroup>
+
+## **Next Steps**
+
+<CardGroup cols={2}>
+  <Card title="Custom Evaluation" icon="clipboard-check" href="/evaluate/custom-evaluation">
+    Create custom evaluation workflows
+  </Card>
+  <Card title="Manual Testing" icon="bug" href="/evaluate/test-your-agent">
+    Test your agent manually
+  </Card>
+  <Card title="Deploy" icon="cloud-upload" href="/launch/deploy-your-agent">
+    Deploy your tested agent
+  </Card>
+  <Card title="Analytics" icon="chart-line" href="/learn/analytics-dashboard">
+    Monitor production performance
+  </Card>
+</CardGroup>
+

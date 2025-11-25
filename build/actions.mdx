@@ -1,0 +1,357 @@
+---
+title: "Actions"
+description: "Integrate external systems and perform actions during conversations"
+---
+
+## **Overview**
+
+Actions allow your Mavera AI agent to interact with external systems, perform operations, and retrieve data during conversations. This enables your agent to do more than just talk—it can actually perform tasks.
+
+![Actions Overview](/images/actions-overview-placeholder.png)
+
+## **What Are Actions?**
+
+Actions are operations your agent can perform during a conversation:
+- **API Calls**: Make HTTP requests to external APIs
+- **Database Queries**: Query databases for information
+- **Email Sending**: Send emails to users or systems
+- **Calendar Operations**: Create, update, or check calendar events
+- **CRM Updates**: Update customer relationship management systems
+- **Custom Integrations**: Connect to any system with an API
+
+## **When to Use Actions**
+
+Use Actions when you need to:
+- Retrieve real-time data (inventory, pricing, availability)
+- Update external systems (CRM, databases, calendars)
+- Send notifications (emails, SMS, push notifications)
+- Perform calculations or data processing
+- Integrate with third-party services
+
+## **Creating Actions**
+
+### **Step 1: Navigate to Actions**
+
+1. Open your agent configuration
+2. Go to the **Actions** section
+3. Click **"Add Action"**
+
+![Action Creation](/images/action-creation-placeholder.png)
+
+### **Step 2: Choose Action Type**
+
+Select the type of action:
+- **HTTP Request**: Make API calls
+- **Database Query**: Query databases
+- **Email**: Send emails
+- **Calendar**: Calendar operations
+- **Custom**: Custom integrations
+
+### **Step 3: Configure Action**
+
+Configure the action parameters:
+- **Name**: Descriptive name for the action
+- **Endpoint/Query**: API endpoint or database query
+- **Method**: HTTP method (GET, POST, PUT, DELETE)
+- **Headers**: Request headers
+- **Body**: Request body or parameters
+- **Authentication**: API keys, tokens, credentials
+
+![Action Configuration](/images/action-config-detail-placeholder.png)
+
+## **Action Types**
+
+### **HTTP Request Actions**
+
+Make API calls to external services:
+
+**Example: Check Inventory**
+```json
+{
+  "name": "Check Inventory",
+  "type": "http",
+  "method": "GET",
+  "url": "https://api.example.com/inventory/{product_id}",
+  "headers": {
+    "Authorization": "Bearer {api_key}",
+    "Content-Type": "application/json"
+  }
+}
+```
+
+**Example: Create Order**
+```json
+{
+  "name": "Create Order",
+  "type": "http",
+  "method": "POST",
+  "url": "https://api.example.com/orders",
+  "body": {
+    "customer_id": "{customer_id}",
+    "items": "{order_items}",
+    "total": "{order_total}"
+  }
+}
+```
+
+### **Database Query Actions**
+
+Query databases for information:
+
+**Example: Get Customer Info**
+```sql
+SELECT name, email, phone, account_balance
+FROM customers
+WHERE customer_id = {customer_id}
+```
+
+### **Email Actions**
+
+Send emails during conversations:
+
+**Example: Send Confirmation Email**
+```json
+{
+  "name": "Send Confirmation",
+  "type": "email",
+  "to": "{customer_email}",
+  "subject": "Order Confirmation",
+  "body": "Your order #{order_id} has been confirmed."
+}
+```
+
+### **Calendar Actions**
+
+Manage calendar events:
+
+**Example: Schedule Appointment**
+```json
+{
+  "name": "Schedule Appointment",
+  "type": "calendar",
+  "action": "create",
+  "title": "Appointment with {customer_name}",
+  "start_time": "{appointment_time}",
+  "duration": 30
+}
+```
+
+## **Using Variables in Actions**
+
+Actions can use variables from the conversation:
+
+- **User Variables**: Information collected from the user
+- **System Variables**: Pre-defined system information
+- **Action Results**: Results from previous actions
+
+**Example:**
+```
+URL: https://api.example.com/users/{user_id}/orders
+Body: {
+  "customer_name": "{customer_name}",
+  "order_date": "{current_date}"
+}
+```
+
+## **Action Flow**
+
+### **Sequential Actions**
+
+Execute actions one after another:
+1. Action 1: Get customer info
+2. Action 2: Check inventory
+3. Action 3: Create order
+4. Action 4: Send confirmation
+
+### **Conditional Actions**
+
+Execute actions based on conditions:
+```
+If inventory > 0:
+  → Create order
+  → Send confirmation
+Else:
+  → Notify out of stock
+  → Suggest alternatives
+```
+
+### **Parallel Actions**
+
+Execute multiple actions simultaneously:
+- Get customer info
+- Check inventory
+- Verify payment method
+(All at the same time)
+
+## **Error Handling**
+
+### **Try-Catch Blocks**
+
+Handle action failures gracefully:
+
+```
+Try:
+  → Create order
+Catch:
+  → Log error
+  → Notify user
+  → Offer alternative
+```
+
+### **Retry Logic**
+
+Automatically retry failed actions:
+- **Max Retries**: Maximum number of retry attempts
+- **Retry Delay**: Time between retries
+- **Retry Conditions**: When to retry (timeout, 5xx errors, etc.)
+
+### **Fallback Actions**
+
+Provide fallback when actions fail:
+```
+Primary: Check inventory via API
+Fallback: Check local cache
+Fallback: Ask user to call back later
+```
+
+## **Best Practices**
+
+### **1. Name Actions Clearly**
+
+Use descriptive names:
+- ✅ "Get Customer Profile"
+- ❌ "Action 1"
+
+### **2. Handle Errors**
+
+Always implement error handling:
+- Catch exceptions
+- Provide user-friendly messages
+- Log errors for debugging
+
+### **3. Use Variables**
+
+Leverage variables for dynamic data:
+- Don't hardcode values
+- Use conversation context
+- Pass data between actions
+
+### **4. Optimize Performance**
+
+- Minimize API calls
+- Cache frequently accessed data
+- Use parallel actions when possible
+- Set appropriate timeouts
+
+### **5. Secure Credentials**
+
+- Never hardcode API keys
+- Use secure credential storage
+- Rotate credentials regularly
+- Use environment variables
+
+## **Common Use Cases**
+
+### **E-commerce**
+
+- Check product availability
+- Get pricing information
+- Create orders
+- Send order confirmations
+- Update inventory
+
+### **Appointment Scheduling**
+
+- Check calendar availability
+- Create appointments
+- Send confirmation emails
+- Update CRM records
+- Send reminders
+
+### **Customer Support**
+
+- Retrieve customer history
+- Create support tickets
+- Update ticket status
+- Send follow-up emails
+- Escalate to human agents
+
+### **Lead Qualification**
+
+- Check lead status
+- Update CRM records
+- Schedule follow-ups
+- Send qualification emails
+- Route to sales team
+
+## **Testing Actions**
+
+### **1. Test in Isolation**
+
+Test each action independently before integrating.
+
+### **2. Test with Real Data**
+
+Use realistic test data that matches production scenarios.
+
+### **3. Test Error Cases**
+
+Test what happens when actions fail:
+- Network errors
+- Invalid data
+- Authentication failures
+- Timeouts
+
+### **4. Monitor Performance**
+
+Track action execution times and success rates.
+
+## **Troubleshooting**
+
+<AccordionGroup>
+  <Accordion title="Actions are timing out">
+    - Increase timeout settings
+    - Optimize API endpoints
+    - Check network connectivity
+    - Review action complexity
+  </Accordion>
+
+  <Accordion title="Actions are failing with authentication errors">
+    - Verify API keys are correct
+    - Check credential expiration
+    - Verify authentication method
+    - Test credentials outside the action
+  </Accordion>
+
+  <Accordion title="Variables aren't being replaced">
+    - Check variable names match exactly
+    - Verify variables are set before use
+    - Check variable scope
+    - Review variable syntax
+  </Accordion>
+
+  <Accordion title="How do I debug action execution?">
+    - Check action execution logs
+    - Review request/response data
+    - Test actions in isolation
+    - Use action testing tools
+  </Accordion>
+</AccordionGroup>
+
+## **Next Steps**
+
+<CardGroup cols={2}>
+  <Card title="Memory" icon="brain" href="/build/memory">
+    Learn about agent memory
+  </Card>
+  <Card title="Flow Designer" icon="sitemap" href="/build/flow-designer">
+    Use actions in flow designer
+  </Card>
+  <Card title="Test Your Agent" icon="flask" href="/evaluate/test-your-agent">
+    Test actions in your agent
+  </Card>
+  <Card title="Webhooks" icon="webhook" href="/learn/about-webhooks">
+    Set up webhooks for action events
+  </Card>
+</CardGroup>
+

@@ -1,4 +1,83 @@
 ---
-title: 'Get Plants'
-openapi: 'GET /plants'
+title: "Get Agent"
+description: "Retrieve agent information via API"
 ---
+
+## **Endpoint**
+
+<ParamField path="id" type="string" required>
+  Agent ID
+</ParamField>
+
+<RequestExample>
+
+```bash
+curl -X GET https://api.mavera.ai/v1/agents/agent_123456 \
+  -H "Authorization: Bearer YOUR_API_KEY"
+```
+
+</RequestExample>
+
+<ResponseExample>
+
+```json
+{
+  "success": true,
+  "data": {
+    "id": "agent_123456",
+    "name": "Customer Service Agent",
+    "description": "Handles customer inquiries",
+    "status": "active",
+    "prompt": "You are a helpful customer service agent...",
+    "voice": {
+      "gender": "female",
+      "accent": "us",
+      "language": "en"
+    },
+    "created_at": "2024-01-15T10:30:00Z",
+    "updated_at": "2024-01-15T10:30:00Z"
+  }
+}
+```
+
+</ResponseExample>
+
+## **List All Agents**
+
+<RequestExample>
+
+```bash
+curl -X GET https://api.mavera.ai/v1/agents \
+  -H "Authorization: Bearer YOUR_API_KEY"
+```
+
+</RequestExample>
+
+<ResponseExample>
+
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "id": "agent_123456",
+      "name": "Customer Service Agent",
+      "status": "active",
+      "created_at": "2024-01-15T10:30:00Z"
+    },
+    {
+      "id": "agent_789012",
+      "name": "Sales Agent",
+      "status": "active",
+      "created_at": "2024-01-14T09:20:00Z"
+    }
+  ],
+  "pagination": {
+    "page": 1,
+    "per_page": 20,
+    "total": 2
+  }
+}
+```
+
+</ResponseExample>

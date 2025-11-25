@@ -1,0 +1,239 @@
+---
+title: "Manual Testing and Debugging"
+description: "Test and debug your agent manually before deployment"
+---
+
+## **Overview**
+
+Manual testing allows you to interact directly with your agent to verify behavior, identify issues, and ensure everything works as expected before deploying to production.
+
+![Manual Testing Overview](/images/manual-testing-overview-placeholder.png)
+
+## **Why Manual Testing?**
+
+- **Direct Interaction**: Experience the agent as users will
+- **Issue Discovery**: Find problems before deployment
+- **Quality Assurance**: Verify agent behavior
+- **User Experience**: Test from user perspective
+
+## **Testing Methods**
+
+### **1. Test Calls**
+
+Make actual phone calls:
+1. Navigate to agent settings
+2. Click **"Test Call"** or **"Make Test Call"**
+3. Enter your phone number
+4. Receive call and interact with agent
+
+![Test Call Interface](/images/test-call-interface-placeholder.png)
+
+### **2. Simulation Testing**
+
+Use simulation interface:
+1. Go to **Evaluate** → **Simulations**
+2. Create or select a simulation
+3. Run simulation interactively
+4. Review conversation flow
+
+### **3. Preview Mode**
+
+Test in preview:
+1. Open agent configuration
+2. Click **"Preview"** or **"Test"**
+3. Type or speak test messages
+4. Review agent responses
+
+![Preview Mode](/images/preview-mode-placeholder.png)
+
+## **What to Test**
+
+### **Basic Functionality**
+
+- **Greeting**: Does agent greet properly?
+- **Responses**: Are responses appropriate?
+- **Understanding**: Does agent understand inputs?
+- **Flow**: Does conversation flow correctly?
+
+### **Edge Cases**
+
+- **Unexpected Inputs**: How does agent handle unexpected responses?
+- **Errors**: What happens when errors occur?
+- **Timeouts**: How are timeouts handled?
+- **Interruptions**: Can users interrupt the agent?
+
+### **Integration Points**
+
+- **Actions**: Do actions execute correctly?
+- **Knowledge Base**: Is knowledge base accessed?
+- **Memory**: Is memory working properly?
+- **External Systems**: Are integrations functioning?
+
+### **User Experience**
+
+- **Clarity**: Are responses clear?
+- **Tone**: Is tone appropriate?
+- **Helpfulness**: Is agent helpful?
+- **Efficiency**: Is conversation efficient?
+
+## **Debugging**
+
+### **Review Logs**
+
+Check execution logs:
+1. Go to **Learn** → **Logs**
+2. Filter by test session
+3. Review conversation flow
+4. Identify issues
+
+![Debug Logs](/images/debug-logs-placeholder.png)
+
+### **Check Variables**
+
+Verify variable values:
+- Are variables set correctly?
+- Are variables used properly?
+- Do variables persist?
+- Are variable names correct?
+
+### **Test Actions**
+
+Verify action execution:
+- Do actions trigger correctly?
+- Are API calls successful?
+- Is data formatted properly?
+- Are errors handled?
+
+### **Review Configuration**
+
+Check agent settings:
+- Voice configuration
+- Knowledge base setup
+- Action configuration
+- Memory settings
+
+## **Common Issues**
+
+### **Agent Not Responding**
+
+**Possible Causes:**
+- Configuration errors
+- Network issues
+- Service problems
+
+**Solutions:**
+- Check agent status
+- Verify configuration
+- Review logs
+- Test connectivity
+
+### **Incorrect Responses**
+
+**Possible Causes:**
+- Prompt issues
+- Knowledge base problems
+- Context misunderstanding
+
+**Solutions:**
+- Review prompts
+- Check knowledge base
+- Test understanding
+- Refine configuration
+
+### **Actions Not Working**
+
+**Possible Causes:**
+- API errors
+- Authentication issues
+- Configuration problems
+
+**Solutions:**
+- Test API endpoints
+- Verify credentials
+- Check configuration
+- Review error logs
+
+## **Best Practices**
+
+### **1. Test Systematically**
+
+Follow a test plan:
+- Test basic functionality first
+- Then test edge cases
+- Finally test integrations
+- Document findings
+
+### **2. Test from User Perspective**
+
+Think like a user:
+- Use natural language
+- Test common scenarios
+- Try unexpected inputs
+- Verify user experience
+
+### **3. Document Issues**
+
+Keep detailed notes:
+- What was tested
+- What happened
+- What should happen
+- How to reproduce
+
+### **4. Test Regularly**
+
+Test frequently:
+- Before deployment
+- After changes
+- Regular intervals
+- After incidents
+
+### **5. Get Feedback**
+
+Involve others:
+- Team members
+- Stakeholders
+- Beta users
+- Customers
+
+## **Troubleshooting**
+
+<AccordionGroup>
+  <Accordion title="How do I test without making calls?">
+    - Use simulation feature
+    - Use preview mode
+    - Test in development environment
+    - Use test phone numbers
+  </Accordion>
+
+  <Accordion title="Agent responses are incorrect">
+    - Review agent prompts
+    - Check knowledge base
+    - Verify configuration
+    - Test understanding
+  </Accordion>
+
+  <Accordion title="How do I debug complex issues?">
+    - Review detailed logs
+    - Test components individually
+    - Use debugging tools
+    - Contact support if needed
+  </Accordion>
+</AccordionGroup>
+
+## **Next Steps**
+
+<CardGroup cols={2}>
+  <Card title="Simulations" icon="flask" href="/evaluate/simulations">
+    Test with automated scenarios
+  </Card>
+  <Card title="Custom Evaluation" icon="clipboard-check" href="/evaluate/custom-evaluation">
+    Create custom evaluation workflows
+  </Card>
+  <Card title="Deploy" icon="cloud-upload" href="/launch/deploy-your-agent">
+    Deploy your tested agent
+  </Card>
+  <Card title="Logs" icon="file-lines" href="/learn/logs">
+    Review production logs
+  </Card>
+</CardGroup>
+

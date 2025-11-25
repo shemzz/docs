@@ -1,0 +1,245 @@
+---
+title: "Configuration"
+description: "Configure your agent's settings, behavior, and capabilities"
+---
+
+## **Overview**
+
+Agent configuration allows you to fine-tune your agent's behavior, appearance, and capabilities. This guide covers all configuration options available in Mavera AI.
+
+![Configuration Overview](/images/configuration-overview-placeholder.png)
+
+## **Basic Configuration**
+
+### **Agent Information**
+
+- **Agent Name**: A descriptive name for your agent
+- **Description**: Brief description of what your agent does
+- **Category**: Select the category that best fits your use case
+- **Tags**: Add tags for organization and filtering
+
+![Basic Configuration](/images/basic-config-placeholder.png)
+
+### **Language Settings**
+
+- **Primary Language**: The main language for conversations
+- **Supported Languages**: Additional languages your agent can handle
+- **Auto-detect Language**: Automatically detect caller's language
+
+## **Voice Configuration**
+
+### **Voice Selection**
+
+Choose from a variety of voices:
+- **Gender**: Male, Female, or Neutral
+- **Accent**: Regional accents (US, UK, Australian, etc.)
+- **Voice Style**: Professional, Friendly, Casual, etc.
+
+![Voice Selection](/images/voice-selection-placeholder.png)
+
+### **Voice Parameters**
+
+Fine-tune voice characteristics:
+- **Speaking Rate**: Speed of speech (slow to fast)
+- **Pitch**: Voice pitch (low to high)
+- **Volume**: Voice volume level
+- **Pause Duration**: Length of pauses between sentences
+
+### **Advanced Voice Settings**
+
+- **Emotion**: Add emotional tone to voice
+- **Emphasis**: Control emphasis on certain words
+- **Pronunciation**: Custom pronunciation for specific terms
+
+## **Conversation Settings**
+
+### **Greeting**
+
+Configure how your agent greets callers:
+- **Default Greeting**: Standard greeting message
+- **Time-based Greetings**: Different greetings for different times
+- **Personalized Greeting**: Use caller's name if available
+
+### **Conversation Flow**
+
+- **Max Turns**: Maximum number of conversation turns
+- **Timeout**: Time limit for responses
+- **Interruption Handling**: How to handle caller interruptions
+- **Silence Detection**: How to handle silence
+
+### **Ending Conversations**
+
+- **Closing Message**: Final message before ending
+- **Follow-up Actions**: Actions to take after conversation
+- **Transfer Options**: Options for transferring to humans
+
+## **Knowledge Base Configuration**
+
+### **Adding Knowledge Sources**
+
+- **Documents**: Upload PDFs, Word docs, text files
+- **URLs**: Add web pages to scrape
+- **Text**: Enter information directly
+- **Databases**: Connect to external databases
+
+![Knowledge Base Setup](/images/knowledge-base-config-placeholder.png)
+
+### **Knowledge Base Settings**
+
+- **Update Frequency**: How often to refresh knowledge
+- **Relevance Threshold**: Minimum relevance for using knowledge
+- **Source Attribution**: Whether to cite sources
+
+## **Action Configuration**
+
+### **Available Actions**
+
+Configure actions your agent can perform:
+- **API Calls**: Make HTTP requests to external APIs
+- **Database Queries**: Query databases
+- **Email Sending**: Send emails
+- **Calendar Integration**: Create calendar events
+- **CRM Updates**: Update CRM systems
+
+![Action Configuration](/images/action-config-placeholder.png)
+
+### **Action Settings**
+
+- **Timeout**: Maximum time for action execution
+- **Retry Logic**: Number of retries on failure
+- **Error Handling**: How to handle action failures
+- **Authentication**: API keys and credentials
+
+## **Memory Configuration**
+
+### **Conversation Memory**
+
+- **Context Window**: How much conversation history to remember
+- **Variable Storage**: What variables to store
+- **Memory Duration**: How long to retain information
+
+### **Long-term Memory**
+
+- **User Profiles**: Store user-specific information
+- **Conversation History**: Maintain history across sessions
+- **Learning**: Enable agent to learn from interactions
+
+## **Security & Privacy**
+
+### **Data Handling**
+
+- **Data Retention**: How long to store conversation data
+- **PII Handling**: How to handle personally identifiable information
+- **Compliance**: GDPR, HIPAA, and other compliance settings
+
+### **Access Control**
+
+- **API Access**: Control API access to agent
+- **Webhook Security**: Secure webhook endpoints
+- **Authentication**: Require authentication for access
+
+## **Analytics & Monitoring**
+
+### **Logging**
+
+- **Log Level**: Detail level of logs
+- **Log Retention**: How long to keep logs
+- **Export Options**: Options for exporting logs
+
+### **Metrics**
+
+- **Track Metrics**: What metrics to track
+- **Dashboard Access**: Who can access analytics
+- **Alerts**: Set up alerts for specific events
+
+## **Integration Settings**
+
+### **Telephony**
+
+- **Phone Numbers**: Configure phone numbers
+- **Call Routing**: Set up call routing rules
+- **Voicemail**: Configure voicemail handling
+
+### **Third-party Integrations**
+
+- **CRM Integration**: Connect to CRM systems
+- **Calendar Integration**: Connect to calendar systems
+- **Email Integration**: Connect to email services
+- **Custom Integrations**: Set up custom integrations
+
+## **Advanced Settings**
+
+### **Model Configuration**
+
+- **AI Model**: Choose the AI model to use
+- **Temperature**: Control randomness in responses
+- **Max Tokens**: Maximum response length
+- **System Prompts**: Custom system-level prompts
+
+### **Performance Tuning**
+
+- **Response Time**: Target response time
+- **Caching**: Enable response caching
+- **Optimization**: Performance optimization settings
+
+## **Best Practices**
+
+### **1. Start Simple**
+
+Begin with basic configuration and add complexity as needed.
+
+### **2. Test Changes**
+
+Always test configuration changes before deploying.
+
+### **3. Document Settings**
+
+Keep notes on why you chose specific settings.
+
+### **4. Monitor Performance**
+
+Regularly review analytics to optimize configuration.
+
+### **5. Security First**
+
+Always prioritize security and privacy settings.
+
+## **Troubleshooting**
+
+<AccordionGroup>
+  <Accordion title="My configuration changes aren't taking effect">
+    - Ensure you've saved the configuration
+    - Check if the agent needs to be redeployed
+    - Verify you're editing the correct agent version
+  </Accordion>
+
+  <Accordion title="Voice settings aren't working as expected">
+    - Test voice settings in the preview
+    - Check if your selected voice supports the settings
+    - Verify audio output settings
+  </Accordion>
+
+  <Accordion title="Knowledge base isn't being used">
+    - Verify knowledge sources are properly uploaded
+    - Check relevance threshold settings
+    - Review knowledge base update status
+  </Accordion>
+</AccordionGroup>
+
+## **Next Steps**
+
+<CardGroup cols={2}>
+  <Card title="Actions" icon="bolt" href="/build/actions">
+    Learn about configuring actions
+  </Card>
+  <Card title="Memory" icon="brain" href="/build/memory">
+    Configure agent memory
+  </Card>
+  <Card title="Voice Configuration" icon="microphone" href="/build/voice-configuration">
+    Detailed voice configuration guide
+  </Card>
+  <Card title="Test Your Agent" icon="flask" href="/evaluate/test-your-agent">
+    Test your configuration
+  </Card>
+</CardGroup>
+

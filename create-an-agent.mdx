@@ -1,0 +1,162 @@
+---
+title: "Quick Start"
+description: "Build your first voice agent in a few minutes with Mavera AI"
+---
+
+## **Overview**
+
+This quick start guide will help you create your first AI voice agent in just a few minutes. By the end of this tutorial, you'll have a working agent that can handle phone calls.
+
+## **Prerequisites**
+
+Before you begin, make sure you have:
+
+- A Mavera AI account (sign up at [voice.mavera.ai](https://voice.mavera.ai/auth))
+- Access to the Mavera AI dashboard
+- Basic understanding of your use case
+
+## **Step 1: Create a New Agent**
+
+1. Log in to your Mavera AI dashboard
+2. Click **"Create Agent"** or **"New Agent"** button
+3. Choose between:
+   - **Flow Designer Agent**: For complex, multi-step conversations
+   - **Single-Prompt Agent**: For simpler, straightforward conversations
+
+![Create Agent Interface](/images/1.jpeg)
+
+## **Step 2: Configure Basic Settings**
+
+Fill in the basic information:
+
+- **Agent Name**: Give your agent a descriptive name
+- **Description**: Briefly describe what your agent does
+- **Language**: Select the primary language for conversations
+- **Voice**: Choose a voice that matches your brand
+
+![Basic Configuration](/images/5.jpeg)
+
+## **Step 3: Set Up Your Agent's Behavior**
+
+### **For Single-Prompt Agents:**
+
+Enter a clear, detailed prompt that describes:
+- What your agent should do
+- How it should interact with callers
+- What information it should collect
+- How it should handle different scenarios
+
+**Example Prompt:**
+```
+You are a friendly customer service agent for a restaurant. 
+Your role is to:
+- Greet callers warmly
+- Answer questions about menu items, hours, and location
+- Take reservations for parties of 2 or more
+- Provide directions to the restaurant
+- Transfer urgent calls to a manager if needed
+
+Always be polite, helpful, and concise. If you don't know something, 
+honestly say so and offer to connect them with someone who can help.
+```
+
+### **For Flow Designer Agents:**
+
+Use the visual flow designer to:
+- Create conversation nodes
+- Define decision points
+- Set up actions and integrations
+- Configure memory and context
+
+![Flow Designer Interface](/images/3.jpeg)
+
+## **Step 4: Add Knowledge Base (Optional)**
+
+If your agent needs specific information:
+
+1. Go to **Knowledge Base** section
+2. Upload documents, add URLs, or enter text
+3. Your agent will use this information to answer questions accurately
+
+![Knowledge Base Setup](/images/4.jpeg)
+
+## **Step 5: Configure Voice Settings**
+
+Customize how your agent sounds:
+
+- **Voice Selection**: Choose from available voices
+- **Speaking Rate**: Adjust how fast the agent speaks
+- **Pitch**: Modify the voice pitch
+- **Accent**: Select regional accent if available
+
+![Voice Configuration](/images/2.jpeg)
+
+## **Step 6: Test Your Agent**
+
+Before deploying, test your agent:
+
+1. Click **"Test Agent"** or use the simulation feature
+2. Have a conversation with your agent
+3. Check that it responds correctly
+4. Make adjustments as needed
+
+![Testing Interface](/images/4.jpeg)
+
+## **Step 7: Deploy Your Agent**
+
+Once you're satisfied with your agent:
+
+1. Click **"Deploy"** or **"Go Live"**
+2. Configure telephony settings
+3. Assign a phone number or connect to your existing number
+4. Your agent is now ready to handle calls!
+
+![Deployment Interface](/images/5.jpeg)
+
+## **Next Steps**
+
+Now that you have a basic agent, explore these features:
+
+<CardGroup cols={2}>
+  <Card title="Flow Designer" icon="sitemap" href="/build/flow-designer">
+    Learn to build complex conversation flows
+  </Card>
+  <Card title="Actions" icon="bolt" href="/build/actions">
+    Add actions to integrate with external systems
+  </Card>
+  <Card title="Memory" icon="brain" href="/build/memory">
+    Configure agent memory for context retention
+  </Card>
+  <Card title="Simulations" icon="flask" href="/evaluate/simulations">
+    Test your agent with realistic scenarios
+  </Card>
+</CardGroup>
+
+## **Common Issues**
+
+<AccordionGroup>
+  <Accordion title="My agent isn't responding correctly">
+    - Review your prompt or flow design
+    - Check that your knowledge base is properly configured
+    - Test with different conversation scenarios
+    - Review the logs for errors
+  </Accordion>
+
+  <Accordion title="The voice doesn't sound right">
+    - Try different voice options
+    - Adjust speaking rate and pitch
+    - Ensure the voice language matches your conversation language
+  </Accordion>
+
+  <Accordion title="How do I add more complex logic?">
+    - Use the Flow Designer for multi-step conversations
+    - Add Actions for external integrations
+    - Configure Memory for context retention
+  </Accordion>
+</AccordionGroup>
+
+## **Need Help?**
+
+- Check our [Help Center](https://helpcenter.mavera.ai/)
+- Contact [Support](mailto:support@mavera.ai) for assistance
+

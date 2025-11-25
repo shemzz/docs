@@ -1,0 +1,121 @@
+---
+title: "Webhooks"
+description: "Set up webhooks to receive real-time updates"
+---
+
+## **Overview**
+
+Webhooks allow you to receive real-time notifications about events in your Mavera AI account. Use webhooks to integrate with external systems and automate workflows.
+
+![Webhooks Overview](/images/webhooks-overview-placeholder.png)
+
+## **What are Webhooks?**
+
+Webhooks are HTTP callbacks that notify your system when events occur:
+- **Call Started**: When a call begins
+- **Call Ended**: When a call completes
+- **Call Transcribed**: When transcription is ready
+- **Action Executed**: When actions complete
+- **Error Occurred**: When errors happen
+
+## **Setting Up Webhooks**
+
+### **Step 1: Create Webhook**
+
+1. Navigate to **Learn** → **Webhooks**
+2. Click **"Create Webhook"**
+3. Enter webhook URL
+4. Select events to subscribe to
+5. Configure security settings
+
+![Webhook Setup](/images/webhook-setup-placeholder.png)
+
+### **Step 2: Configure Events**
+
+Select which events to receive:
+- **Call Events**: Call started, ended, etc.
+- **Agent Events**: Agent updates, deployments
+- **Action Events**: Action execution, completion
+- **Error Events**: Errors and failures
+
+### **Step 3: Test Webhook**
+
+Test your webhook:
+1. Send test event
+2. Verify receipt
+3. Check payload format
+4. Validate security
+
+## **Webhook Security**
+
+### **Authentication**
+
+Secure your webhooks:
+- **API Keys**: Use API key authentication
+- **Signatures**: Verify webhook signatures
+- **HTTPS**: Always use secure connections
+- **IP Whitelisting**: Restrict to known IPs
+
+### **Payload Verification**
+
+Verify webhook authenticity:
+- Check signatures
+- Validate timestamps
+- Verify source
+- Validate payload structure
+
+## **Best Practices**
+
+### **1. Use HTTPS**
+
+Always use secure connections:
+- Encrypt webhook payloads
+- Protect sensitive data
+- Ensure privacy
+- Comply with regulations
+
+### **2. Handle Failures**
+
+Implement retry logic:
+- Retry failed deliveries
+- Handle timeouts
+- Log failures
+- Alert on issues
+
+### **3. Validate Payloads**
+
+Verify webhook data:
+- Check payload structure
+- Validate required fields
+- Handle missing data
+- Sanitize inputs
+
+## **Troubleshooting**
+
+<AccordionGroup>
+  <Accordion title="Webhooks aren't being received">
+    - Verify webhook URL is correct
+    - Check firewall settings
+    - Test endpoint accessibility
+    - Review security settings
+  </Accordion>
+
+  <Accordion title="How do I verify webhook authenticity?">
+    - Check webhook signatures
+    - Validate timestamps
+    - Verify source IP
+    - Use API key authentication
+  </Accordion>
+</AccordionGroup>
+
+## **Next Steps**
+
+<CardGroup cols={2}>
+  <Card title="API Reference" icon="code" href="/api-reference/getting-started-with-your-api">
+    Learn about API integration
+  </Card>
+  <Card title="Logs" icon="file-lines" href="/learn/logs">
+    Review webhook delivery logs
+  </Card>
+</CardGroup>
+

@@ -1,0 +1,335 @@
+---
+title: "Single-Prompt Agent"
+description: "Create simple, effective agents using natural language prompts"
+---
+
+## **Overview**
+
+Single-Prompt Agents are perfect for straightforward conversations where you can describe your agent's behavior in natural language. This approach is ideal for simple use cases that don't require complex branching logic.
+
+![Single-Prompt Agent Overview](/images/single-prompt-overview-placeholder.png)
+
+## **When to Use Single-Prompt Agents**
+
+Use Single-Prompt Agents when:
+- Your conversation is relatively linear
+- You don't need complex conditional logic
+- You want quick setup and deployment
+- Your use case is straightforward
+
+For complex, multi-step conversations with branching logic, consider using the [Flow Designer](/build/flow-designer) instead.
+
+## **Creating a Single-Prompt Agent**
+
+### **Step 1: Choose Single-Prompt**
+
+1. Navigate to **Create Agent**
+2. Select **"Single-Prompt Agent"**
+3. You'll see the prompt editor
+
+![Prompt Editor](/images/prompt-editor-placeholder.png)
+
+### **Step 2: Write Your Prompt**
+
+Your prompt should clearly describe:
+- **Who the agent is**: Role and personality
+- **What it should do**: Main objectives
+- **How it should behave**: Tone, style, and approach
+- **What information to collect**: Required data points
+- **How to handle edge cases**: Unexpected situations
+
+### **Step 3: Structure Your Prompt**
+
+A well-structured prompt includes:
+
+#### **1. Role Definition**
+```
+You are a friendly customer service representative for [Company Name].
+```
+
+#### **2. Objectives**
+```
+Your primary goals are to:
+- Answer customer questions accurately
+- Schedule appointments when requested
+- Provide information about our services
+- Escalate urgent issues to a human agent
+```
+
+#### **3. Behavior Guidelines**
+```
+Always:
+- Be polite and professional
+- Listen carefully to the customer
+- Ask clarifying questions when needed
+- Confirm important information before proceeding
+```
+
+#### **4. Information Collection**
+```
+When scheduling appointments, collect:
+- Customer name
+- Preferred date and time
+- Contact phone number
+- Reason for visit
+```
+
+#### **5. Edge Cases**
+```
+If you cannot answer a question:
+- Acknowledge the limitation honestly
+- Offer to connect them with a specialist
+- Provide alternative ways to get help
+```
+
+## **Example Prompts**
+
+### **Customer Service Agent**
+
+```
+You are a helpful customer service agent for an e-commerce company.
+
+Your responsibilities include:
+- Answering questions about products, orders, and shipping
+- Processing returns and refunds
+- Helping customers track their orders
+- Escalating complex issues to the appropriate department
+
+Guidelines:
+- Always greet customers warmly
+- Verify order numbers before providing information
+- Be empathetic when handling complaints
+- Offer solutions, not just explanations
+
+If a customer wants to return an item:
+1. Ask for the order number
+2. Verify the item is eligible for return
+3. Explain the return process
+4. Provide a return authorization if applicable
+
+For issues you cannot resolve, offer to transfer to a specialist or 
+provide a callback option.
+```
+
+### **Appointment Scheduler**
+
+```
+You are an appointment scheduling assistant for a medical clinic.
+
+Your role is to:
+- Schedule appointments for patients
+- Answer questions about available time slots
+- Provide information about appointment preparation
+- Reschedule or cancel appointments when needed
+
+When scheduling:
+1. Greet the caller warmly
+2. Ask for their name and date of birth
+3. Inquire about the reason for the visit
+4. Check available time slots
+5. Confirm the appointment details
+6. Provide any preparation instructions
+
+Always:
+- Be professional and empathetic
+- Respect patient privacy
+- Confirm all details before finalizing
+- Offer alternative times if preferred slot is unavailable
+
+If the caller needs urgent care, advise them to visit the emergency 
+department or call 911.
+```
+
+### **Lead Qualification**
+
+```
+You are a sales development representative for a B2B software company.
+
+Your goal is to:
+- Qualify inbound leads
+- Understand their business needs
+- Schedule product demonstrations
+- Route qualified leads to the sales team
+
+Qualification questions:
+1. What is your company name and industry?
+2. What problem are you trying to solve?
+3. What is your timeline for a solution?
+4. What is your budget range?
+5. Who is the decision maker?
+
+Scoring:
+- High priority: Budget confirmed, decision maker identified, timeline < 3 months
+- Medium priority: Budget range provided, timeline 3-6 months
+- Low priority: Early stage, no budget confirmed
+
+For high-priority leads, schedule a demo immediately.
+For medium-priority, send information and schedule follow-up.
+For low-priority, add to nurture sequence.
+```
+
+## **Best Practices**
+
+### **1. Be Specific**
+
+❌ **Vague:**
+```
+Help customers with their questions.
+```
+
+✅ **Specific:**
+```
+Answer questions about product features, pricing, and availability. 
+For technical questions, provide basic troubleshooting steps or 
+offer to connect with technical support.
+```
+
+### **2. Include Examples**
+
+```
+When customers ask about pricing:
+- If they ask "How much does it cost?", provide the starting price
+- If they ask "What's included?", list the features
+- If they ask "Are there discounts?", mention current promotions
+```
+
+### **3. Define Boundaries**
+
+```
+You should NOT:
+- Make promises about delivery times (check system instead)
+- Provide medical advice (refer to healthcare professionals)
+- Process payments (transfer to billing department)
+```
+
+### **4. Set the Tone**
+
+```
+Communication style:
+- Professional but friendly
+- Use clear, simple language
+- Avoid jargon unless the customer uses it first
+- Show empathy when appropriate
+```
+
+### **5. Handle Errors Gracefully**
+
+```
+If you don't understand something:
+- Ask for clarification: "I want to make sure I understand correctly..."
+- Rephrase what you heard: "So you're saying that..."
+- Offer alternatives: "I can help you with X, Y, or Z. Which would you prefer?"
+```
+
+## **Enhancing Your Prompt**
+
+### **Add Knowledge Base**
+
+Even with Single-Prompt Agents, you can enhance them with a Knowledge Base:
+
+1. Upload relevant documents
+2. Add URLs to scrape
+3. Enter specific information
+4. Your agent will use this to answer questions accurately
+
+![Knowledge Base Integration](/images/knowledge-base-integration-placeholder.png)
+
+### **Configure Voice**
+
+Customize how your agent sounds:
+- Select voice that matches your brand
+- Adjust speaking rate and pitch
+- Choose appropriate accent
+
+### **Set Up Actions**
+
+While Single-Prompt Agents are simpler, you can still add Actions:
+- Create calendar events
+- Send emails
+- Update CRM systems
+- Query databases
+
+## **Testing Your Prompt**
+
+### **1. Test Common Scenarios**
+
+- Typical customer questions
+- Standard requests
+- Common problems
+
+### **2. Test Edge Cases**
+
+- Unusual requests
+- Confusing inputs
+- Error situations
+
+### **3. Review Responses**
+
+- Are responses accurate?
+- Is the tone appropriate?
+- Does it collect needed information?
+- Does it handle errors well?
+
+### **4. Iterate**
+
+- Refine your prompt based on test results
+- Add more specific instructions
+- Clarify ambiguous areas
+- Improve error handling
+
+## **When to Upgrade to Flow Designer**
+
+Consider upgrading to Flow Designer if you need:
+- Complex branching logic
+- Multiple decision points
+- Conditional actions based on user responses
+- Integration with multiple external systems
+- Predictable, reviewable conversation paths
+
+## **Troubleshooting**
+
+<AccordionGroup>
+  <Accordion title="My agent isn't following the prompt correctly">
+    - Make your instructions more explicit
+    - Add examples of desired behavior
+    - Break down complex tasks into steps
+    - Test and refine iteratively
+  </Accordion>
+
+  <Accordion title="The agent is too verbose or too brief">
+    - Add specific instructions about response length
+    - Provide examples of ideal responses
+    - Adjust the tone and style guidelines
+  </Accordion>
+
+  <Accordion title="The agent isn't collecting required information">
+    - Explicitly list what information to collect
+    - Provide example questions to ask
+    - Specify when to ask for each piece of information
+  </Accordion>
+
+  <Accordion title="How do I make the agent more consistent?">
+    - Be more specific in your instructions
+    - Add more examples
+    - Use structured formats for responses
+    - Test with various scenarios
+  </Accordion>
+</AccordionGroup>
+
+## **Next Steps**
+
+<CardGroup cols={2}>
+  <Card title="Knowledge Base" icon="database" href="/build/knowledge-base">
+    Enhance your agent with knowledge sources
+  </Card>
+  <Card title="Voice Configuration" icon="microphone" href="/build/voice-configuration">
+    Customize your agent's voice
+  </Card>
+  <Card title="Actions" icon="bolt" href="/build/actions">
+    Add external integrations
+  </Card>
+  <Card title="Test Your Agent" icon="flask" href="/evaluate/test-your-agent">
+    Test and refine your agent
+  </Card>
+</CardGroup>
+

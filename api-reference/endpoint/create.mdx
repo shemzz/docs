@@ -1,4 +1,70 @@
 ---
-title: 'Create Plant'
-openapi: 'POST /plants'
+title: "Create Agent"
+description: "Create a new AI voice agent via API"
 ---
+
+## **Endpoint**
+
+<ParamField body="body" path="body" type="object">
+  <ParamField body="name" path="name" type="string" required>
+    Agent name
+  </ParamField>
+  <ParamField body="description" path="description" type="string">
+    Agent description
+  </ParamField>
+  <ParamField body="prompt" path="prompt" type="string" required>
+    Agent prompt or instructions
+  </ParamField>
+  <ParamField body="voice" path="voice" type="object">
+    <ParamField body="gender" path="voice.gender" type="string">
+      Voice gender (male, female, neutral)
+    </ParamField>
+    <ParamField body="accent" path="voice.accent" type="string">
+      Voice accent (us, uk, australian, etc.)
+    </ParamField>
+    <ParamField body="language" path="voice.language" type="string">
+      Primary language
+    </ParamField>
+  </ParamField>
+  <ParamField body="type" path="type" type="string">
+    Agent type (single-prompt, flow-designer)
+  </ParamField>
+</ParamField>
+
+<RequestExample>
+
+```bash
+curl -X POST https://api.mavera.ai/v1/agents \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "name": "Customer Service Agent",
+    "description": "Handles customer inquiries",
+    "prompt": "You are a helpful customer service agent...",
+    "voice": {
+      "gender": "female",
+      "accent": "us",
+      "language": "en"
+    },
+    "type": "single-prompt"
+  }'
+```
+
+</RequestExample>
+
+<ResponseExample>
+
+```json
+{
+  "success": true,
+  "data": {
+    "id": "agent_123456",
+    "name": "Customer Service Agent",
+    "description": "Handles customer inquiries",
+    "status": "active",
+    "created_at": "2024-01-15T10:30:00Z"
+  }
+}
+```
+
+</ResponseExample>

@@ -1,0 +1,264 @@
+---
+title: "Getting Started with Your API"
+description: "Learn how to use Mavera AI's API to automate phone calls and manage agents"
+---
+
+## **Overview**
+
+Mavera AI provides a comprehensive REST API that allows you to programmatically create agents, manage calls, and integrate voice AI capabilities into your applications.
+
+![API Overview](/images/api-overview-placeholder.png)
+
+## **Authentication**
+
+All API requests require authentication using an API key.
+
+### **Getting Your API Key**
+
+1. Log in to your Mavera AI dashboard
+2. Navigate to **Settings** → **API Keys**
+3. Click **"Create API Key"**
+4. Copy and securely store your API key
+
+<Warning>
+Keep your API key secure. Never commit it to version control or expose it in client-side code.
+</Warning>
+
+### **Using Your API Key**
+
+Include your API key in the `Authorization` header:
+
+```bash
+curl -X GET https://api.mavera.ai/v1/agents \
+  -H "Authorization: Bearer YOUR_API_KEY"
+```
+
+## **Base URL**
+
+All API requests should be made to:
+
+```
+https://api.mavera.ai/v1
+```
+
+## **Rate Limits**
+
+API rate limits are based on your plan:
+- **Starter**: 100 requests per minute
+- **Professional**: 1,000 requests per minute
+- **Enterprise**: Custom limits
+
+Rate limit headers are included in all responses:
+- `X-RateLimit-Limit`: Maximum requests allowed
+- `X-RateLimit-Remaining`: Remaining requests in current window
+- `X-RateLimit-Reset`: Time when the rate limit resets
+
+## **Request Format**
+
+### **Headers**
+
+All requests should include:
+- `Authorization: Bearer YOUR_API_KEY`
+- `Content-Type: application/json` (for POST/PUT requests)
+
+### **Response Format**
+
+All responses follow this structure:
+
+```json
+{
+  "success": true,
+  "data": {
+    // Response data
+  },
+  "message": "Optional message"
+}
+```
+
+### **Error Responses**
+
+Error responses include:
+
+```json
+{
+  "success": false,
+  "error": {
+    "code": "ERROR_CODE",
+    "message": "Human-readable error message",
+    "details": {}
+  }
+}
+```
+
+## **Common Status Codes**
+
+- `200 OK`: Request successful
+- `201 Created`: Resource created successfully
+- `400 Bad Request`: Invalid request parameters
+- `401 Unauthorized`: Invalid or missing API key
+- `403 Forbidden`: Insufficient permissions
+- `404 Not Found`: Resource not found
+- `429 Too Many Requests`: Rate limit exceeded
+- `500 Internal Server Error`: Server error
+
+## **Quick Start Example**
+
+### **1. Create an Agent**
+
+```bash
+curl -X POST https://api.mavera.ai/v1/agents \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "name": "Customer Service Agent",
+    "description": "Handles customer inquiries",
+    "prompt": "You are a helpful customer service agent...",
+    "voice": {
+      "gender": "female",
+      "accent": "us"
+    }
+  }'
+```
+
+### **2. Make a Call**
+
+```bash
+curl -X POST https://api.mavera.ai/v1/calls \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "agent_id": "agent_123",
+    "phone_number": "+1234567890",
+    "direction": "outbound"
+  }'
+```
+
+### **3. Get Call Status**
+
+```bash
+curl -X GET https://api.mavera.ai/v1/calls/call_456 \
+  -H "Authorization: Bearer YOUR_API_KEY"
+```
+
+## **SDKs and Libraries**
+
+### **JavaScript/TypeScript**
+
+```bash
+npm install @mavera/ai-sdk
+```
+
+```javascript
+import { MaveraAI } from '@mavera/ai-sdk';
+
+const client = new MaveraAI({
+  apiKey: 'YOUR_API_KEY'
+});
+
+// Create an agent
+const agent = await client.agents.create({
+  name: 'My Agent',
+  prompt: 'You are a helpful assistant...'
+});
+
+// Make a call
+const call = await client.calls.create({
+  agentId: agent.id,
+  phoneNumber: '+1234567890'
+});
+```
+
+### **Python**
+
+```bash
+pip install mavera-ai
+```
+
+```python
+from mavera_ai import MaveraAI
+
+client = MaveraAI(api_key='YOUR_API_KEY')
+
+# Create an agent
+agent = client.agents.create(
+    name='My Agent',
+    prompt='You are a helpful assistant...'
+)
+
+# Make a call
+call = client.calls.create(
+    agent_id=agent.id,
+    phone_number='+1234567890'
+)
+```
+
+## **Webhooks**
+
+Set up webhooks to receive real-time updates:
+
+```bash
+curl -X POST https://api.mavera.ai/v1/webhooks \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "url": "https://your-app.com/webhooks/mavera",
+    "events": ["call.started", "call.ended", "call.transcribed"]
+  }'
+```
+
+## **Best Practices**
+
+### **1. Handle Errors Gracefully**
+
+Always check for errors and handle them appropriately:
+
+```javascript
+try {
+  const agent = await client.agents.create({...});
+} catch (error) {
+  if (error.code === 'RATE_LIMIT_EXCEEDED') {
+    // Retry with exponential backoff
+  } else {
+    // Handle other errors
+  }
+}
+```
+
+### **2. Use Webhooks for Real-time Updates**
+
+Instead of polling, use webhooks for call status updates.
+
+### **3. Implement Retry Logic**
+
+Implement retry logic with exponential backoff for transient failures.
+
+### **4. Cache When Possible**
+
+Cache agent configurations and other static data to reduce API calls.
+
+### **5. Monitor Usage**
+
+Track your API usage to stay within rate limits and optimize costs.
+
+## **Next Steps**
+
+<CardGroup cols={2}>
+  <Card title="Create Agent" icon="plus" href="/api-reference/endpoint/create">
+    Learn how to create agents via API
+  </Card>
+  <Card title="Get Agent" icon="eye" href="/api-reference/endpoint/get">
+    Retrieve agent information
+  </Card>
+  <Card title="Delete Agent" icon="trash" href="/api-reference/endpoint/delete">
+    Delete agents programmatically
+  </Card>
+  <Card title="Webhooks" icon="webhook" href="/api-reference/endpoint/webhook">
+    Set up webhooks for real-time updates
+  </Card>
+</CardGroup>
+
+## **Support**
+
+- **API Documentation**: Full API reference available in this documentation
+- **Support Email**: support@mavera.ai
+
