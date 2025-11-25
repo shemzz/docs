@@ -103,7 +103,7 @@
     "primary": {
       "type": "button",
       "label": "Sign up",
-      "href": "https://voice.mavera.ai/auth"
+      "href": "https://mavera.ai/packages"
     }
   },
   "contextual": {
